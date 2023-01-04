@@ -75,13 +75,18 @@ void initCL(cl_device_id *device, cl_context *context, cl_program *program)
     *context = clCreateContext(props, 1, device, NULL, NULL, &status);
     CHECK(status, "clCreateContext");
 
+    // printf("cp2\n");
     const char *source = readSource("kernel.cl");
+    // printf("cp3\n");
 
     // Create a program object with source and build it
     *program = clCreateProgramWithSource(*context, 1, &source, NULL, NULL);
+    // printf("cp1\n");
     CHECK(status, "clCreateProgramWithSource");
     status = clBuildProgram(*program, 1, device, NULL, NULL, NULL);
+    // printf("cp2\n");
     CHECK(status, "clBuildProgram");
+    // printf("cp3\n");
 
     return;
 }

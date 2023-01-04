@@ -103,6 +103,7 @@ int main(int argc, char **argv)
       memset(outputImage, 0, dataSize);
       start_time = currentSeconds();
       // Run the host to execute the kernel
+      // printf("heloooo\n");
       hostFE(filterWidth, filter, imageHeight, imageWidth, inputImage, outputImage,
              &device, &context, &program);
       end_time = currentSeconds();
